@@ -29,12 +29,12 @@ require_recipe "xdebug"
 package "git-core"
 
 # Had some issues with an upload path not being specified so we set one here
-file "/etc/php5/apache2/conf.d/upload_path.ini" do
-  owner "root"
-  group "root"
-  content "upload_tmp_dir = /tmp/web-app"
-  action :create
-end
+#file "/etc/php5/apache2/conf.d/upload_path.ini" do
+#  owner "root"
+#  group "root"
+#  content "upload_tmp_dir = /tmp/web-app"
+#  action :create
+#end
 
 # Remove the 000-default site
 apache_site "000-default" do
