@@ -56,11 +56,18 @@ apache_site "000-default" do
   enable false
 end
 
-web_app "localhost" do
-  server_name node[:app][:server_name]
-  server_aliases node[:app][:server_aliases]
-  docroot node[:app][:docroot]
-  kohana_environment node[:app][:kohana_environment]
+web_app "bt.mss.co.ke" do
+  server_name node[:app][:staging][:server_name]
+  server_aliases node[:app][:staging][:server_aliases]
+  docroot node[:app][:staging][:docroot]
+  kohana_environment node[:app][:staging][:server_env]
+end
+
+web_app "basetitanium.com" do
+  server_name node[:app][:production][:server_name]
+  server_aliases node[:app][:production][:server_aliases]
+  docroot node[:app][:production][:docroot]
+  kohana_environment node[:app][:production][:server_env]
 end
 
 gem_package "compass" do
