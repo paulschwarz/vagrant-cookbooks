@@ -44,7 +44,7 @@ web_app node[:app][:staging][:server_name] do
   server_name node[:app][:staging][:server_name]
   server_aliases node[:app][:staging][:server_aliases]
   docroot node[:app][:staging][:docroot]
-  SERVER_ENV node[:app][:staging][:server_env]
+  server_environment node[:app][:staging][:server_env]
 end
 
 directory node[:app][:production][:docbase] do
@@ -58,7 +58,7 @@ web_app node[:app][:production][:server_name] do
   server_name node[:app][:production][:server_name]
   server_aliases node[:app][:production][:server_aliases]
   docroot node[:app][:production][:docroot]
-  SERVER_ENV node[:app][:production][:server_env]
+  server_environment node[:app][:production][:server_env]
 end
 
 gem_package "compass" do
