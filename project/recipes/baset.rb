@@ -40,7 +40,7 @@ directory node[:app][:staging][:docroot] do
   action :create
   recursive true
 end
-web_app "bt.mss.co.ke" do
+web_app [:app][:staging][:server_name] do
   server_name node[:app][:staging][:server_name]
   server_aliases node[:app][:staging][:server_aliases]
   docroot node[:app][:staging][:docroot]
@@ -54,7 +54,7 @@ directory node[:app][:production][:docroot] do
   action :create
   recursive true
 end
-web_app "basetitanium.com" do
+web_app [:app][:production][:server_name] do
   server_name node[:app][:production][:server_name]
   server_aliases node[:app][:production][:server_aliases]
   docroot node[:app][:production][:docroot]
