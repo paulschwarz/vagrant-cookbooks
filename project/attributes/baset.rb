@@ -1,11 +1,11 @@
 default[:app][:staging][:server_name]        = "bt.mss.co.ke"
 default[:app][:staging][:server_aliases]     = ["*.bt.mss.co.ke"]
 default[:app][:staging][:docbase]            = "/home/baset/staging"
-default[:app][:staging][:docroot]            = "/home/baset/staging/public"
+default[:app][:staging][:docroot]            = "/home/baset/staging/current"
 default[:app][:staging][:server_env]         = "staging"
 
 default[:app][:production][:server_name]     = "basetitanium.com"
 default[:app][:production][:server_aliases]  = ["*.basetitanium.com"]
 default[:app][:production][:docbase]         = "/home/baset/production"
-default[:app][:production][:docroot]         = "/home/baset/production/public"
+default[:app][:production][:docroot]         = "/home/baset/production/current"
 default[:app][:production][:server_env]      = "production"
