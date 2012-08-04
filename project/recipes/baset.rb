@@ -34,8 +34,8 @@ apache_site "000-default" do
 end
 
 directory node[:app][:staging][:docroot] do
-  owner "root"
-  group "root"
+  owner "baset"
+  group "baset"
   mode "0755"
   action :create
   recursive true
@@ -48,8 +48,8 @@ web_app node[:app][:staging][:server_name] do
 end
 
 directory node[:app][:production][:docroot] do
-  owner "root"
-  group "root"
+  owner "baset"
+  group "baset"
   mode "0755"
   action :create
   recursive true
