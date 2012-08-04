@@ -33,6 +33,13 @@ apache_site "000-default" do
   enable false
 end
 
+directory node[:app][:staging][:docroot] do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  recursive true
+end
 web_app "bt.mss.co.ke" do
   server_name node[:app][:staging][:server_name]
   server_aliases node[:app][:staging][:server_aliases]
@@ -40,6 +47,13 @@ web_app "bt.mss.co.ke" do
   SERVER_ENV node[:app][:staging][:server_env]
 end
 
+directory node[:app][:production][:docroot] do
+  owner "root"
+  group "root"
+  mode "0755"
+  action :create
+  recursive true
+end
 web_app "basetitanium.com" do
   server_name node[:app][:production][:server_name]
   server_aliases node[:app][:production][:server_aliases]
