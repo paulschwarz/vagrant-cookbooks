@@ -4,8 +4,8 @@ execute "initial-sudo-apt-get-update" do
 end
 
 # Making apache run as the vagrant user simplifies things when you ssh in
-node.set["apache"]["user"] = "vagrant"
-node.set["apache"]["group"] = "vagrant"
+node.set["apache"]["user"] = "baset"
+node.set["apache"]["group"] = "baset"
 
 require_recipe "apt"
 
@@ -29,11 +29,6 @@ require_recipe "xdebug"
 package "nodejs"
 package "npm"
 package "git-core"
-
-# These can be defined in the Vagrantfile to install some extra needed packages
-node[:app][:extra_packages].each do |extra_package|
-  package extra_package
-end
 
 # Installs uglifyjs for the vagrant user
 execute "install uglifyjs npm" do
@@ -60,14 +55,14 @@ web_app "bt.mss.co.ke" do
   server_name node[:app][:staging][:server_name]
   server_aliases node[:app][:staging][:server_aliases]
   docroot node[:app][:staging][:docroot]
-  kohana_environment node[:app][:staging][:server_env]
+  SERVER_ENV node[:app][:staging][:server_env]
 end
 
 web_app "basetitanium.com" do
   server_name node[:app][:production][:server_name]
   server_aliases node[:app][:production][:server_aliases]
   docroot node[:app][:production][:docroot]
-  kohana_environment node[:app][:production][:server_env]
+  SERVER_ENV node[:app][:production][:server_env]
 end
 
 gem_package "compass" do
