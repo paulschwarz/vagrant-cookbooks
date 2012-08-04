@@ -32,9 +32,9 @@ package "git-core"
 
 # Installs uglifyjs for the vagrant user
 execute "install uglifyjs npm" do
-  user "vagrant"
-  group "vagrant"
-  environment ({'HOME' => '/home/vagrant'})
+  user "baset"
+  group "baset"
+  environment ({'HOME' => '/home/baset'})
   command "npm install uglify-js"
 end
 
