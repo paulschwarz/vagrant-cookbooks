@@ -26,17 +26,7 @@ require_recipe "mysql::server"
 
 require_recipe "xdebug"
 
-package "nodejs"
-package "npm"
 package "git-core"
-
-# Installs uglifyjs for the vagrant user
-execute "install uglifyjs npm" do
-  user "baset"
-  group "baset"
-  environment ({'HOME' => '/home/baset'})
-  command "npm install uglify-js"
-end
 
 # Had some issues with an upload path not being specified so we set one here
 file "/etc/php5/apache2/conf.d/upload_path.ini" do
@@ -69,29 +59,4 @@ gem_package "compass" do
   action :install
   version "0.11.5"
   provider Chef::Provider::Package::Rubygems
-end
-
-gem_package "foreman" do
-  action :install
-  version "0.26.1"
-  provider Chef::Provider::Package::Rubygems
-end
-
-remote_file "/usr/bin/wkhtmltopdf" do
-  source "http://zeelot.s3.amazonaws.com/cookbook-files/wkhtmltopdf-amd64-0.9.9"
-  group "root"
-  owner "root"
-  mode "0755"
-  checksum "c1047cca6bce10d3d1cf7fed4520f2f2be5be5176cba73cf550d0f87f530df3e"
-end
-
-# Add the vagrant user to the vboxsf group
-group "vboxsf" do
-  members 'vagrant'
-  append true
-end
-
-# This fixes a bug in Ubuntu 11.10
-file "/etc/php5/conf.d/sqlite.ini" do
-  action :delete
 end
