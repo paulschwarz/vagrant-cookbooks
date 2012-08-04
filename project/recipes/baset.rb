@@ -33,7 +33,7 @@ apache_site "000-default" do
   enable false
 end
 
-directory node[:app][:staging][:docroot] do
+directory node[:app][:staging][:docbase] do
   owner "baset"
   group "baset"
   mode "0755"
@@ -47,7 +47,7 @@ web_app node[:app][:staging][:server_name] do
   SERVER_ENV node[:app][:staging][:server_env]
 end
 
-directory node[:app][:production][:docroot] do
+directory node[:app][:production][:docbase] do
   owner "baset"
   group "baset"
   mode "0755"
