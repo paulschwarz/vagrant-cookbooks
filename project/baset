@@ -70,8 +70,8 @@ cat <<EOF > $CHEF_DIR/config/default.json
   ],
   "mysql":
   {
-    "server_root_password": $MYSQLPASS,
-    "server_repl_password": $MYSQLPASS 
+    "server_root_password": "$MYSQLPASS",
+    "server_repl_password": "$MYSQLPASS"
   }
 }
 EOF
