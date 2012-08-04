@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # call like this on the target server:
-# CHEFREPO='git://github.com/paulsschwarz/vagrant-cookbooks.git' bash <( curl -L https://raw.github.com/paulsschwarz/vagrant-cookbooks/master/project/baset )
+# MYSQLPASS='qwerty' CHEFREPO='git://github.com/paulsschwarz/vagrant-cookbooks.git' bash <( curl -L https://raw.github.com/paulsschwarz/vagrant-cookbooks/master/project/baset )
 
 set -e
 
@@ -67,7 +67,12 @@ cat <<EOF > $CHEF_DIR/config/default.json
   "run_list":
   [
     "recipe[project::baset]"
-  ]
+  ],
+  "mysql":
+  {
+    "server_root_password": $MYSQLPASS,
+    "server_repl_password": $MYSQLPASS
+  }
 }
 EOF
 
