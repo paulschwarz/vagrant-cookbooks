@@ -10,4 +10,4 @@ default[:app][:production][:server_aliases]  = ["*.basetitanium.com"]
 default[:app][:production][:docbase]         = "/home/baset/production"
 default[:app][:production][:docroot]         = "/home/baset/production/current/public"
 default[:app][:production][:server_env]      = "production"
-default[:app][:staging][:apache_allow_override] = "All"
+default[:app][:production][:apache_allow_override] = "All"

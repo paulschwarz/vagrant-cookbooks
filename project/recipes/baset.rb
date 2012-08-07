@@ -13,6 +13,7 @@ require_recipe "apache2"
 require_recipe "apache2::mod_php5"
 require_recipe "apache2::mod_rewrite"
 require_recipe "apache2::mod_ssl"
+require_recipe "apache2::mod_expires"
 
 require_recipe "php"
 require_recipe "php::module_curl"
@@ -60,7 +61,7 @@ web_app node[:app][:production][:server_name] do
   server_aliases node[:app][:production][:server_aliases]
   docroot node[:app][:production][:docroot]
   server_environment node[:app][:production][:server_env]
-  apache_allow_override node[:app][:staging][:apache_allow_override]
+  apache_allow_override node[:app][:production][:apache_allow_override]
 end
 
 gem_package "compass" do
