@@ -45,6 +45,7 @@ web_app node[:app][:staging][:server_name] do
   server_aliases node[:app][:staging][:server_aliases]
   docroot node[:app][:staging][:docroot]
   server_environment node[:app][:staging][:server_env]
+  apache_allow_override node[:app][:staging][:apache_allow_override]
 end
 
 directory node[:app][:production][:docbase] do
@@ -59,6 +60,7 @@ web_app node[:app][:production][:server_name] do
   server_aliases node[:app][:production][:server_aliases]
   docroot node[:app][:production][:docroot]
   server_environment node[:app][:production][:server_env]
+  apache_allow_override node[:app][:staging][:apache_allow_override]
 end
 
 gem_package "compass" do

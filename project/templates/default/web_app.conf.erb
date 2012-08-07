@@ -18,7 +18,7 @@
     DirectoryIndex index.php
     RewriteEngine on
     Options +FollowSymlinks
-    AllowOverride none
+    AllowOverride <%= @params[:apache_allow_override] %>
     RewriteBase /
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
