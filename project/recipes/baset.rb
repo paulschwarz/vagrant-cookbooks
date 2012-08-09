@@ -4,8 +4,8 @@ execute "initial-sudo-apt-get-update" do
 end
 
 # Making apache run as the vagrant user simplifies things when you ssh in
-node.set["apache"]["user"] = "baset"
-node.set["apache"]["group"] = "baset"
+#node.set["apache"]["user"] = "baset"
+#node.set["apache"]["group"] = "baset"
 
 require_recipe "apt"
 

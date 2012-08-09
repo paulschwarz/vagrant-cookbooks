@@ -71,7 +71,20 @@ cat <<EOF > $CHEF_DIR/config/default.json
   "run_list":
   [
     "recipe[project::baset]"
-  ]
+  ],
+  "php":
+  {
+    "contact": "admin@mss.co.ke",
+    "prefork":
+    {
+      "startservers":            2,
+      "minspareservers":         2,
+      "maxspareservers":         5,
+      "serverlimit":            10,
+      "maxclients":             10,
+      "maxrequestsperchild": 10000
+    }
+  }
 }
 EOF
 
