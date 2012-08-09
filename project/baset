@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # call like this on the target server:
-# MYSQLPASS='qwerty' CHEFREPO='git://github.com/paulsschwarz/vagrant-cookbooks.git' bash <( curl -L https://raw.github.com/paulsschwarz/vagrant-cookbooks/master/project/baset )
+# LINUXUSER='baset' MYSQLPASS='qwerty' CHEFREPO='git://github.com/paulsschwarz/vagrant-cookbooks.git' bash <( curl -L https://raw.github.com/paulsschwarz/vagrant-cookbooks/master/project/baset )
 
 set -e
+
+echo "-- Adding user"
+adduser $LINUXUSER
+usermod -aG sudo $LINUXUSER
 
 export RUBYGEMS_VERSION="1.8.24"
 export CHEF_DIR="${HOME}/chef"

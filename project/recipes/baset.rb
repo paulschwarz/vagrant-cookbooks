@@ -23,7 +23,8 @@ require_recipe "php::module_memcache"
 require_recipe "php::module_mysql"
 require_recipe "php::module_sqlite3"
 
-require_recipe "mysql::server"
+# We don't want mysql if we're using Cloud Databases
+#require_recipe "mysql::server"
 
 #require_recipe "xdebug"
 
