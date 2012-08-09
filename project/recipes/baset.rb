@@ -25,6 +25,7 @@ require_recipe "php::module_sqlite3"
 
 # We don't want mysql if we're using Cloud Databases
 #require_recipe "mysql::server"
+include_recipe "mysql::client"
 
 #require_recipe "xdebug"
 
