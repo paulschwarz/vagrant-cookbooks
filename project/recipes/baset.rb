@@ -4,8 +4,8 @@ execute "initial-sudo-apt-get-update" do
 end
 
 # Making apache run as the vagrant user simplifies things when you ssh in
-#node.set["apache"]["user"] = "baset"
-#node.set["apache"]["group"] = "baset"
+node.set["apache"]["user"] = "baset"
+node.set["apache"]["group"] = "baset"
 
 require_recipe "apt"
 
@@ -38,8 +38,8 @@ end
 
 directory node[:app][:staging][:docbase] do
   owner "baset"
-  group "www-data"
-  mode "4750"
+  group "baset"
+  mode "750"
   action :create
   recursive true
 end
@@ -53,8 +53,8 @@ end
 
 directory node[:app][:production][:docbase] do
   owner "baset"
-  group "www-data"
-  mode "4750"
+  group "baset"
+  mode "750"
   action :create
   recursive true
 end
@@ -74,8 +74,8 @@ end
 
 directory "/home/baset/files/phocadownload" do
   owner "baset"
-  group "www-data"
-  mode "4750"
+  group "baset"
+  mode "750"
   action :create
   recursive true
 end
