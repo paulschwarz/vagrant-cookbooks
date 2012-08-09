@@ -38,7 +38,7 @@ end
 
 directory node[:app][:staging][:docbase] do
   owner "baset"
-  group "baset"
+  group "www-data"
   mode "0755"
   action :create
   recursive true
@@ -53,7 +53,7 @@ end
 
 directory node[:app][:production][:docbase] do
   owner "baset"
-  group "baset"
+  group "www-data"
   mode "0755"
   action :create
   recursive true
@@ -74,7 +74,7 @@ end
 
 directory "/home/baset/files/phocadownload" do
   owner "baset"
-  group "baset"
+  group "www-data"
   mode "0755"
   action :create
   recursive true
