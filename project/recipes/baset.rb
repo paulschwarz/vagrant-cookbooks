@@ -71,3 +71,11 @@ gem_package "compass" do
   version "0.11.5"
   provider Chef::Provider::Package::Rubygems
 end
+
+directory "/home/baset/files/phocadownload" do
+  owner "baset"
+  group "baset"
+  mode "0755"
+  action :create
+  recursive true
+end

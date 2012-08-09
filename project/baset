@@ -72,7 +72,7 @@ cat <<EOF > $CHEF_DIR/config/default.json
   [
     "recipe[project::baset]"
   ],
-  "php":
+  "apache":
   {
     "contact": "admin@mss.co.ke",
     "prefork":
