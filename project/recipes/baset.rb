@@ -1,3 +1,17 @@
+node.set[:app][:staging][:server_name]        = "bt.mss.co.ke"
+node.set[:app][:staging][:server_aliases]     = ["*.bt.mss.co.ke"]
+node.set[:app][:staging][:docbase]            = "/home/baset/staging"
+node.set[:app][:staging][:docroot]            = "/home/baset/staging/current/public"
+node.set[:app][:staging][:server_env]         = "staging"
+node.set[:app][:staging][:apache_allow_override] = "None"
+
+node.set[:app][:production][:server_name]     = "basetitanium.com"
+node.set[:app][:production][:server_aliases]  = ["*.basetitanium.com"]
+node.set[:app][:production][:docbase]         = "/home/baset/production"
+node.set[:app][:production][:docroot]         = "/home/baset/production/current/public"
+node.set[:app][:production][:server_env]      = "production"
+node.set[:app][:production][:apache_allow_override] = "None"
+
 # For some reason, a fresh copy of my VM has issues booting up until this runs
 execute "initial-sudo-apt-get-update" do
   command "apt-get update"
