@@ -36,9 +36,9 @@ end
 
 server_development = server = {}
 server[:server_name]              = "localhost"
-server[:server_aliases]           = ["sss.vm", "*.sss.vm"]
-server[:docbase]                  = "/home/vagrant/#{node[:domain_name]}/development"
-server[:docroot]                  = "/home/vagrant/#{node[:domain_name]}/development/current/www"
+server[:server_aliases]           = ["dev.vm"]
+server[:docbase]                  = "/home/vagrant/#{node[:domain_name]}"
+server[:docroot]                  = "/home/vagrant/#{node[:domain_name]}/www"
 server[:server_env]               = "development"
 server[:user]                     = "vagrant"
 server[:group]                    = "vagrant"
