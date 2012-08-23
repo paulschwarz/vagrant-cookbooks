@@ -1,11 +1,22 @@
-execute "apt-get-update" do
+execute "initial-apt-get-update" do
   command "apt-get update"
+end
+
+require_recipe "apt"
+
+# http://www.barryodonovan.com/index.php/2012/05/22/ubuntu-12-04-precise-pangolin-and-php-5-4-again
+apt_repository "php54" do
+  action :add
+  uri "http://ppa.launchpad.net/ondrej/php5/ubuntu"
+  distribution node['lsb']['codename']
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "E5267A6C"
 end
 
 node[:apache][:user] = "vagrant"
 node[:apache][:group] = "vagrant"
 
-require_recipe "apt"
 require_recipe "apache2"
 require_recipe "apache2::mod_php5"
 require_recipe "apache2::mod_rewrite"
