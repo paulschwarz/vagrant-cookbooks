@@ -1,10 +1,8 @@
 #
-# Author::  Joshua Timberman (<joshua@opscode.com>)
-# Author::  Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: php
-# Recipe:: module_ldap
+# Cookbook Name:: xml
+# Recipe:: default
 #
-# Copyright 2009-2011, Opscode, Inc.
+# Copyright 2010-2012, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,14 +17,14 @@
 # limitations under the License.
 #
 
-pkg = value_for_platform(
-  %w(centos redhat scientific fedora) => {
-    %w(5.0 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8) => "php53-ldap",
-    "default" => "php-ldap"
-  },
-  "default" => "php5-ldap"
+pkg_name = value_for_platform(
+  [ "centos", "redhat", "scientific", "suse", "fedora", "amazon" ] => { "default" => ["libxml2-devel","libxslt-devel"] },
+  [ "freebsd" ] => { "default" => ["libxml2","libxslt"] },
+  "default" => ["libxml2-dev", "libxslt-dev"]
 )
 
-package pkg do
-  action :install
+pkg_name.each do |pkg|
+  package pkg do
+    action :install
+  end
 end
